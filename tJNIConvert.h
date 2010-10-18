@@ -22,7 +22,7 @@
 #ifndef RRLIB__FINROC_CORE_UTILS_JNI__TJNICONVERT_H
 #define RRLIB__FINROC_CORE_UTILS_JNI__TJNICONVERT_H
 
-#include "finroc_core_utils/tJCBase.h"
+#include "rrlib/finroc_core_utils/tJCBase.h"
 
 #ifdef __JC_CREATE_JNI_WRAPPERS__
 
