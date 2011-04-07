@@ -19,10 +19,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-#ifndef RRLIB__FINROC_CORE_UTILS_JNI__TJNICONVERT_H
-#define RRLIB__FINROC_CORE_UTILS_JNI__TJNICONVERT_H
+#ifndef rrlib__finroc_core_utils_jni__tJNIConvert_h__
+#define rrlib__finroc_core_utils_jni__tJNIConvert_h__
 
-#include "rrlib/finroc_core_utils/tJCBase.h"
+#include "rrlib/finroc_core_utils/definitions.h"
 
 #ifdef __JC_CREATE_JNI_WRAPPERS__
 
@@ -229,4 +229,4 @@ T* DynamicCast(jlong ptr)
 
 #endif
 
-#endif // RRLIB__FINROC_CORE_UTILS_JNI__TJNICONVERT_H
+#endif // rrlib__finroc_core_utils_jni__tJNIConvert_h__
