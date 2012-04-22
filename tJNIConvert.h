@@ -99,10 +99,6 @@ jstring ToJstring(const char* c)
   jstring js = tJNIHelper::GetEnv()->NewStringUTF(c);
   return js;
 }
-jstring ToJstring(const finroc::util::tAbstractString& d)
-{
-  return ToJstring(d.GetCString());
-}
 jstring ToJstring(const std::string& d)
 {
   return ToJstring(d.c_str());
@@ -207,6 +203,15 @@ double ToDouble(jdouble v)
 float ToFloat(jfloat v)
 {
   return static_cast<jfloat>(v);
+}
+
+std::string ToString(jstring js)
+{
+  const jchar* str = tJNIHelper::GetEnv()->GetStringUTFChars(js, NULL);
+  assert(str != NULL && "OutOfMemoryError");
+  std::string s(str);
+  tJNIHelper::GetEnv()->ReleaseStringUTFChars(js, str);
+  return s;
 }
 
 template <typename T>
