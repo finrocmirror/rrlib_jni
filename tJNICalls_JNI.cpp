@@ -23,9 +23,7 @@
  */
 #include "rrlib/finroc_core_utils_jni/tJNIConvert.h"
 
-namespace jniwrap
-{
-} // namespace jniwrap
+#include <cstring>
 
 extern "C"
 {
