@@ -23,6 +23,7 @@
 #define rrlib__finroc_core_utils_jni__tJNIConvert_h__
 
 #include "rrlib/finroc_core_utils/definitions.h"
+#include <jni.h>
 
 #ifdef __JC_CREATE_JNI_WRAPPERS__
 
@@ -55,7 +56,7 @@ jint ToJint(T v)
   return static_cast<jint>(v);
 }
 
-jlong ToJlong(int64 v)
+jlong ToJlong(int64_t v)
 {
   return static_cast<jlong>(v);
 }
@@ -145,55 +146,55 @@ int ToInt(jshort v)
   return static_cast<int>(v);
 }
 
-int16 ToInt16(jint v)
+int16_t ToInt16(jint v)
 {
-  return static_cast<int16>(v);
+  return static_cast<int16_t>(v);
 }
-int16 ToInt16(jlong v)
+int16_t ToInt16(jlong v)
 {
-  return static_cast<int16>(v);
+  return static_cast<int16_t>(v);
 }
-int16 ToInt16(jbyte v)
+int16_t ToInt16(jbyte v)
 {
-  return static_cast<int16>(v);
+  return static_cast<int16_t>(v);
 }
-int16 ToInt16(jshort v)
+int16_t ToInt16(jshort v)
 {
-  return static_cast<int16>(v);
-}
-
-int8 ToInt8(jint v)
-{
-  return static_cast<int8>(v);
-}
-int8 ToInt8(jlong v)
-{
-  return static_cast<int8>(v);
-}
-int8 ToInt8(jbyte v)
-{
-  return static_cast<int8>(v);
-}
-int8 ToInt8(jshort v)
-{
-  return static_cast<int8>(v);
+  return static_cast<int16_t>(v);
 }
 
-int64 ToInt64(jint v)
+int8_t ToInt8(jint v)
 {
-  return static_cast<int64>(v);
+  return static_cast<int8_t>(v);
 }
-int64 ToInt64(jlong v)
+int8_t ToInt8(jlong v)
 {
-  return static_cast<int64>(v);
+  return static_cast<int8_t>(v);
 }
-int64 ToInt64(jbyte v)
+int8_t ToInt8(jbyte v)
 {
-  return static_cast<int64>(v);
+  return static_cast<int8_t>(v);
 }
-int64 ToInt64(jshort v)
+int8_t ToInt8(jshort v)
 {
-  return static_cast<int64>(v);
+  return static_cast<int8_t>(v);
+}
+
+int64_t ToInt64(jint v)
+{
+  return static_cast<int64_t>(v);
+}
+int64_t ToInt64(jlong v)
+{
+  return static_cast<int64_t>(v);
+}
+int64_t ToInt64(jbyte v)
+{
+  return static_cast<int64_t>(v);
+}
+int64_t ToInt64(jshort v)
+{
+  return static_cast<int64_t>(v);
 }
 
 double ToDouble(jdouble v)
