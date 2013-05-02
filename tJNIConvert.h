@@ -22,10 +22,10 @@
 #ifndef rrlib__finroc_core_utils_jni__tJNIConvert_h__
 #define rrlib__finroc_core_utils_jni__tJNIConvert_h__
 
-#include "rrlib/finroc_core_utils/definitions.h"
+#include "rrlib/finroc_core_utils_jni/tJNIHelper.h"
 #include <jni.h>
 
-#ifdef __JC_CREATE_JNI_WRAPPERS__
+//#ifdef __JC_CREATE_JNI_WRAPPERS__
 
 namespace finroc
 {
@@ -233,6 +233,6 @@ T* DynamicCast(jlong ptr)
 } // namespace util
 } // namespace finroc
 
-#endif
+//#endif
 
 #endif // rrlib__finroc_core_utils_jni__tJNIConvert_h__

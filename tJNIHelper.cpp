@@ -19,14 +19,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-#include "rrlib/finroc_core_utils/definitions.h"
+#include "rrlib/finroc_core_utils_jni/tJNIHelper.h"
 
 namespace finroc
 {
 namespace util
 {
 
-#ifdef __JC_CREATE_JNI_WRAPPERS__
+//#ifdef __JC_CREATE_JNI_WRAPPERS__
 
 JavaVM* tJNIHelper::jvm = NULL;
 
@@ -87,7 +87,7 @@ const char* tJNIWrappable::GetJavaClassName() const
   return NULL;
 }
 
-#endif
+//#endif
 
 } // namespace finroc
 } // namespace util

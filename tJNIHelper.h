@@ -24,21 +24,21 @@
 
 #include "rrlib/finroc_core_utils/definitions.h"
 
-#ifdef _LIB_RRLIB_FINROC_CORE_UTILS_JNI_BASE_PRESENT_
-#define __JC_CREATE_JNI_WRAPPERS__
-#endif
-
-#ifdef __JC_CREATE_JNI_WRAPPERS__
+//#ifdef _LIB_RRLIB_FINROC_CORE_UTILS_JNI_BASE_PRESENT_
+//#define __JC_CREATE_JNI_WRAPPERS__
+//#endif
+//
+//#ifdef __JC_CREATE_JNI_WRAPPERS__
 #include <jni.h>
 #include "rrlib/finroc_core_utils/tCastCache.h"
-#endif
+//#endif
 
 namespace finroc
 {
 namespace util
 {
 
-#ifdef __JC_CREATE_JNI_WRAPPERS__
+//#ifdef __JC_CREATE_JNI_WRAPPERS__
 class tJNIHelper
 {
 
@@ -171,9 +171,9 @@ typedef tJNIObjectRefHolderT<volatile jobject> tVolatileJNIObjectRefHolder;
 
 class tJNIWrappableBase {};
 
-#else
-typedef tSafeDestructible tJNIWrappableBase;
-#endif
+//#else
+//typedef tSafeDestructible tJNIWrappableBase;
+//#endif
 
 /*!
  * Base class for classes that can be wrapped from a Java VM via JNI.
@@ -181,7 +181,7 @@ typedef tSafeDestructible tJNIWrappableBase;
 class tJNIWrappable : tJNIWrappableBase
 {
 
-#ifdef __JC_CREATE_JNI_WRAPPERS__
+//#ifdef __JC_CREATE_JNI_WRAPPERS__
 
 private:
   /*! Java Object that wraps this object. Null, if there isn't any wrapper (yet) */
@@ -219,7 +219,7 @@ protected:
   /** Creates Java Wrapper object from c++ side */
   virtual jobject CreateJavaWrapper();
 
-#endif
+//#endif
 };
 
 } // namespace finroc
