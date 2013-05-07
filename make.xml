@@ -1,5 +1,5 @@
 <targets>
-  <rrlib name="finroc_core_utils_jni_base" libs="jni">
-    <sources>tJNICalls_JNI.cpp tJNIHelper.cpp tJNIConvert.h</sources>
+  <rrlib name="jni" libs="jni">
+    <sources>**</sources>
   </rrlib>
 </targets>

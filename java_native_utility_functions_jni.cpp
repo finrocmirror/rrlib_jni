@@ -1,36 +1,79 @@
-//This is a generated JNI wrapper file
-
-/**
- * You received this file as part of an advanced experimental
- * robotics framework prototype ('finroc')
+//
+// You received this file as part of RRLib
+// Robotics Research Library
+//
+// Copyright (C) Finroc GbR (finroc.org)
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+//
+//----------------------------------------------------------------------
+/*!\file    rrlib/jni/java_native_utility_functions_jni.cpp
  *
- * Copyright (C) 2007-2010 Max Reichardt,
- *   Robotics Research Lab, University of Kaiserslautern
+ * \author  Max Reichardt
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
+ * \date    2013-05-07
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ * Native utility functions for java code (e.g. get Pointers to native byte buffers)
  */
-#include "rrlib/finroc_core_utils_jni/tJNIConvert.h"
-#include "rrlib/finroc_core_utils_jni/tJNIHelper.h"
+//----------------------------------------------------------------------
 
+//----------------------------------------------------------------------
+// External includes (system with <>, local with "")
+//----------------------------------------------------------------------
+#include <jni.h>
 #include <cstring>
+
+//----------------------------------------------------------------------
+// Internal includes with ""
+//----------------------------------------------------------------------
+#include "rrlib/jni/tJNIWrappable.h"
+
+//----------------------------------------------------------------------
+// Debugging
+//----------------------------------------------------------------------
+#include <cassert>
+
+//----------------------------------------------------------------------
+// Namespace usage
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+// Namespace declaration
+//----------------------------------------------------------------------
+namespace rrlib
+{
+namespace jni
+{
+
+//----------------------------------------------------------------------
+// Forward declarations / typedefs / enums
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+// Const values
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+// Implementation
+//----------------------------------------------------------------------
 
 extern "C"
 {
   JNIEXPORT void JNICALL Java_org_rrlib_finroc_1core_1utils_jc_jni_JNICalls_deleteJNIWrappable(JNIEnv* env, jclass class_, jlong pointer)
   {
-    finroc::util::tJNIWrappable* obj = (finroc::util::tJNIWrappable*)pointer;
+    rrlib::jni::tJNIWrappable* obj = (rrlib::jni::tJNIWrappable*)pointer;
     obj->SetJavaWrapper(NULL, false); // avoids that Java "destructor" is invoked (again)
     delete obj;
   }
@@ -62,14 +105,14 @@ extern "C"
   }
   JNIEXPORT jlong JNICALL Java_org_rrlib_finroc_1core_1utils_jc_jni_JNICalls_getJavaVM(JNIEnv* env, jclass class_)
   {
-    JavaVM* jvm = finroc::util::tJNIHelper::GetJavaVM();
+    JavaVM* jvm = rrlib::jni::GetJavaVM();
     if (jvm != NULL)
     {
       return (jlong)jvm;
     }
     env->GetJavaVM(&jvm);
     assert(jvm != NULL && "Error initializing JavaVM pointer");
-    finroc::util::tJNIHelper::SetJavaVM(jvm);
+    rrlib::jni::SetJavaVM(jvm);
     return (jlong)jvm;
   }
   JNIEXPORT jlong JNICALL Java_org_rrlib_finroc_1core_1utils_jc_jni_JNICalls_getLong(JNIEnv* env, jclass class_, jlong ptr)
@@ -107,7 +150,7 @@ extern "C"
   }
   JNIEXPORT void JNICALL Java_org_rrlib_finroc_1core_1utils_jc_jni_JNICalls_setJavaObject(JNIEnv* env, jclass class_, jlong pointer, jobject object, jboolean java_responsible)
   {
-    finroc::util::tJNIWrappable* obj = (finroc::util::tJNIWrappable*)pointer;
+    rrlib::jni::tJNIWrappable* obj = (rrlib::jni::tJNIWrappable*)pointer;
     obj->SetJavaWrapper(object, !java_responsible);
   }
   JNIEXPORT void JNICALL Java_org_rrlib_finroc_1core_1utils_jc_jni_JNICalls_setLong(JNIEnv* env, jclass class_, jlong ptr, jlong val)
@@ -140,3 +183,8 @@ extern "C"
 
 } // extern C
 
+//----------------------------------------------------------------------
+// End of namespace declaration
+//----------------------------------------------------------------------
+}
+}
