@@ -70,10 +70,10 @@ namespace internal
 {
 
 /*! Pointer to JavaVM. Set at jvm initialization - needs to be done manually if libraries/jni is not used */
-JavaVM* jvm;
+JavaVM* jvm = NULL;
 
 /*! (Cached) Pointer to JNIEnv of current thread */
-__thread JNIEnv* env;
+__thread JNIEnv* env = NULL;
 
 JNIEnv* AttachThread()
 {
@@ -94,7 +94,7 @@ void SetJavaVM(JavaVM* jvm)
   {
     return;
   }
-  assert(internal::jvm && "Java VM already set to a different instance");
+  assert(internal::jvm == NULL && "Java VM already set to a different instance");
   internal::jvm = jvm;
 }
 //----------------------------------------------------------------------
