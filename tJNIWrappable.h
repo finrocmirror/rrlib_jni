@@ -65,7 +65,7 @@ namespace jni
 /*!
  * Base class for classes that can be wrapped from a Java VM via JNI.
  */
-class tJNIWrappable : boost::noncopyable
+class tJNIWrappable : private rrlib::util::tNoncopyable
 {
 
 //----------------------------------------------------------------------
