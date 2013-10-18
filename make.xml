@@ -1,5 +1,5 @@
 <targets>
-  <rrlib name="jni" libs="jni">
+  <rrlib libs="jni">
     <sources>**</sources>
   </rrlib>
 </targets>
