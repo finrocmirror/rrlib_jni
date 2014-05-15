@@ -2,7 +2,7 @@
 <!DOCTYPE targets PUBLIC "-//RRLIB//DTD make 14.05" "http://finroc.org/xml/14.05/make.dtd">
 <targets>
 
-  <library>
+  <library libs="jni">
     <sources>**</sources>
   </library>
 
